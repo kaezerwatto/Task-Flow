@@ -76,7 +76,7 @@ export default function Table ({todos, onRemove,onChangeSet,termTodos,onUpdate}:
   });
 
   // FIXED: Use the proper React setState pattern
-  onChangeSet((prev: Set<number>) => {
+  onChangeSet((prev) => {
     const newSet = new Set(prev);   
     
     if (tache && tache.statut === "Terminee") {

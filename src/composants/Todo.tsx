@@ -128,7 +128,7 @@ useEffect(() => {
 
 
 
-function handleSetSelectFromTable(newSet: Set<number>) {
+function handleSetSelectFromTable(newSet: Set<number> | ((prev: Set<number>) => Set<number>)) {
   setSelectedTodos(newSet);
 }
 
