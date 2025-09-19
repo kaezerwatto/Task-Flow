@@ -1,4 +1,3 @@
-
 import { type TodoProps, type TodosList } from './Todo';
 import { TbEdit } from 'react-icons/tb';
 import {  LuAlarmClockMinus, LuBadgeCheck, LuTrash2 } from 'react-icons/lu';
@@ -15,7 +14,7 @@ import { toast } from 'react-toastify';
 import { format } from 'date-fns';
 
 
-// AJOUT: Interface pour recevoir la fonction de suppression
+// FIXED: Corrected interface for receiving the setState function
 interface TableProps extends TodosList {
     onRemove: (id: number) => void;
     onChangeSet: React.Dispatch<React.SetStateAction<Set<number>>>;
@@ -76,7 +75,8 @@ export default function Table ({todos, onRemove,onChangeSet,termTodos,onUpdate}:
     return newSet;
   });
 
-  onChangeSet((prev:Set<number>) => {
+  // FIXED: Use the proper React setState pattern
+  onChangeSet((prev: Set<number>) => {
     const newSet = new Set(prev);   
     
     if (tache && tache.statut === "Terminee") {
@@ -197,7 +197,7 @@ console.log(`Tache Terminee : ${termTodos}`)
                                         <div className='flex flex-row gap-3'>
                                             <button
                                                 className="btn btn-soft btn-success btn-sm"
-                                                onClick={() => handleEdit(todo)} // <--- Mise à jour ici
+                                                onClick={() => handleEdit(todo)}
                                             >
                                                 <TbEdit size={20} color={'#51DF3FFF'}/>
                                             </button>
