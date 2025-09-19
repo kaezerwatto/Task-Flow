@@ -379,9 +379,9 @@ useEffect(() => {
               optiontri==='Status' &&(
 
                   <div className='order-2 flex flex-row w-[90%] justify-around lg:order-2 lg:flex lg:flex-row lg:justify-around lg:gap-4  md:flex md:flex-row  md:gap-4 md:justify-arround md:w-full  h-fit gap-3 md:order-2 '>
-                    <button className={`btn btn-soft text-xs  w-1/4 md:text-sm md:p-2 md:w-1/4 rounded-[10px] gap-2  p-3  ${filtered === "Basse" ? "btn-primary" :" "} whitespace-nowrap`}   onClick={()=>setFilter("En attente")}>En attentes ({getNumTask("En attente")}) </button>
-                    <button className={`btn btn-soft text-xs  w-1/4 md:text-sm md:p-2 md:w-1/4 rounded-[10px] gap-2  p-3  ${filtered === "Basse" ? "btn-primary" :" "} whitespace-nowrap`}   onClick={()=>setFilter("En cours")} >En cours ({getNumTask("En cours")})</button>
-                    <button className={`btn btn-soft text-xs  w-1/4 md:text-sm md:p-2 md:w-1/4 rounded-[10px] gap-2  p-3  ${filtered === "Basse" ? "btn-primary" :" "} whitespace-nowrap`}   onClick={()=>setFilter("Terminee")}  >Terminees ({getNumTask("Terminee")})</button>
+                    <button className={`btn btn-soft text-xs  w-1/4 md:text-sm md:p-2 md:w-1/4 rounded-[10px] gap-2  p-3  ${filtered === "En attente" ? "btn-primary" :" "} whitespace-nowrap`}   onClick={()=>setFilter("En attente")}>En attentes ({getNumTask("En attente")}) </button>
+                    <button className={`btn btn-soft text-xs  w-1/4 md:text-sm md:p-2 md:w-1/4 rounded-[10px] gap-2  p-3  ${filtered === "En cours" ? "btn-primary" :" "} whitespace-nowrap`}   onClick={()=>setFilter("En cours")} >En cours ({getNumTask("En cours")})</button>
+                    <button className={`btn btn-soft text-xs  w-1/4 md:text-sm md:p-2 md:w-1/4 rounded-[10px] gap-2  p-3  ${filtered === "Terminee" ? "btn-primary" :" "} whitespace-nowrap`}   onClick={()=>setFilter("Terminee")}  >Terminees ({getNumTask("Terminee")})</button>
                   </div>
 
 
