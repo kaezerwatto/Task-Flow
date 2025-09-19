@@ -253,7 +253,7 @@ useEffect(() => {
 
   return (
   <div className='flex flex-col gap-4 items-center max-w-full'>
-        <Header/>
+        <Header2/>
         {/*Statistiques */}
 
         <Stat todos={Todos}/>
