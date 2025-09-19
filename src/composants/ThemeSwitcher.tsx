@@ -20,7 +20,7 @@ function ThemeSwitcher  () {
 
                 {/* sun icon */}
                 <svg
-                  className="swap-off mb-1 h-7 w-7 sm:h-8 sm:w-8 md:h-10 md:w-10 fill-current text-yellow-500"
+                  className="swap-off mb-1 h-7 w-7 sm:h-7 sm:w-7 md:h-10 md:w-10 fill-current text-yellow-500"
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 24 24">
                   <path
