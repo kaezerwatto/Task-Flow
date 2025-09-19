@@ -1,9 +1,9 @@
 
-import { ModeToggle } from '@/components/mode-toggle'
+
 import { FaRegHandPeace } from 'react-icons/fa6'
 import { MdOutlineNotificationsActive } from 'react-icons/md'
 import { SiWheniwork } from 'react-icons/si'
-import  {motion} from 'framer-motion'
+
 import ThemeSwitcher from './ThemeSwitcher'
 
 

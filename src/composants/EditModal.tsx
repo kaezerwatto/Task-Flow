@@ -1,14 +1,14 @@
 import { useState, useEffect } from 'react';
 import { format } from 'date-fns';
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Calendar } from "@/components/ui/calendar";
 import { CalendarIcon } from "lucide-react";
-import { TodoProps, Priorite, statut } from './Todo'; // Assurez-vous d'importer vos types
+import type  { TodoProps, Priorite, Statut } from './Todo'; // Assurez-vous d'importer vos types
 import { TbShoppingBagEdit } from 'react-icons/tb';
 import { MdOutlineArrowBackIosNew,MdArrowForwardIos } from 'react-icons/md';
 import { BsCheckAll } from 'react-icons/bs';
@@ -155,7 +155,7 @@ export default function EditModal({ isOpen, onClose, todoToEdit, onSave }: EditM
                             <Label htmlFor="status" className="text-right">Statut</Label>
                             <Select
                                 value={editedTodo.statut}
-                                onValueChange={(value) => setEditedTodo({ ...editedTodo, statut: value as statut })}
+                                onValueChange={(value) => setEditedTodo({ ...editedTodo, statut: value as Statut })}
                             >
                                 <SelectTrigger className="col-span-3 w-3/4">
                                     <SelectValue placeholder="Choisir le statut" />

@@ -1,5 +1,5 @@
 
-import { type TodoProps, type TodosList, Priorite } from './Todo';
+import { type TodoProps, type TodosList } from './Todo';
 import { TbEdit } from 'react-icons/tb';
 import {  LuAlarmClockMinus, LuBadgeCheck, LuTrash2 } from 'react-icons/lu';
 import { RiLoader2Line } from 'react-icons/ri';
@@ -7,7 +7,7 @@ import { BsArrowDown, BsArrowUp,BsArrowDownUp, BsCalendar2Check } from 'react-ic
 import { CalendarIcon, ConstructionIcon } from 'lucide-react';
 
 import { useState } from 'react';
-import { FaRegFaceSmileWink } from 'react-icons/fa6';
+
 import { IoBanOutline } from 'react-icons/io5';
 import {PiSmileyMeltingFill} from 'react-icons/pi';
 import EditModal from './EditModal';
@@ -18,10 +18,11 @@ import { format } from 'date-fns';
 // AJOUT: Interface pour recevoir la fonction de suppression
 interface TableProps extends TodosList {
     onRemove: (id: number) => void;
-    onChangeSet: (id: number) => void;
+    onChangeSet: React.Dispatch<React.SetStateAction<Set<number>>>;
     termTodos: TodoProps[];
-    onUpdate: (updatedTodo: TodoProps) => void; // Nouvelle prop pour la mise à jour
+    onUpdate: (updatedTodo: TodoProps) => void;
 }
+
 
 export default function Table ({todos, onRemove,onChangeSet,termTodos,onUpdate}: TableProps) {
     const [selectedTodos, setSelectTodos]=useState<Set<number>>(new Set())
@@ -75,7 +76,7 @@ export default function Table ({todos, onRemove,onChangeSet,termTodos,onUpdate}:
     return newSet;
   });
 
-  onChangeSet((prev:any) => {
+  onChangeSet((prev:Set<number>) => {
     const newSet = new Set(prev);   
     
     if (tache && tache.statut === "Terminee") {

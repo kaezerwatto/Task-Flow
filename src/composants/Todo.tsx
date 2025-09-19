@@ -28,24 +28,16 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { Button } from "@/components/ui/button"
 import {CalendarIcon} from "lucide-react"
 import { format } from "date-fns"
-
-
 import Stat from "./Stat";
-import Header from "./Header";
+// import Header from "./Header";
 import Table from "./Table" ;
 import { motion } from 'framer-motion';
-import {
-  useUser,
-  SignInButton,
-  SignUpButton,
-  UserButton,
-  useAuth
-} from '@clerk/Clerk-react'
+import Header2 from './Header2';
  
 
 export type filtre="Basse" | "Moyenne" | "Haute" | "En attente" | "En cours" | "Terminee"
 export type Priorite ="Basse" | "Moyenne" | "Haute"
-type Statut ="En attente" | "En cours" | "Terminee"
+export type Statut ="En attente" | "En cours" | "Terminee"
 export type TodoProps={
   id:number;
   titre:string;
@@ -73,7 +65,7 @@ function Todo({ todos }: TodosList) {
   const [filtered, setFilter] = useState<filtre | "Tous">("Tous")
   const [filterTodos, setFilterTodos] = useState<TodoProps[]>([])
   const [deadline, setDeadline] = useState<Date | undefined>(undefined)
-  const [selectedTodos,setSelectedTodos]=useState(new Set())
+  const [selectedTodos, setSelectedTodos] = useState<Set<number>>(new Set());
   const [todosTermines,setTodosTermine]=useState<TodoProps[]>([])
 
 useEffect(() =>{
@@ -136,9 +128,10 @@ useEffect(() => {
 
 
 
-function handleSetSelectFromTable( newSet){
-  setSelectedTodos(newSet)
+function handleSetSelectFromTable(newSet: Set<number>) {
+  setSelectedTodos(newSet);
 }
+
 function handleRemoveTodo(id: number) {
     const updatedTodos = Todos.filter(todo => todo.id !== id);
     setTodos(updatedTodos);
